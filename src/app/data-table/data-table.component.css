@@ -1,0 +1,9 @@
+.card > .card-header-danger.card-header-danger{
+    background: #262479;
+    box-shadow: 3px 0 6px rgba(0,0,0,.24);
+}
+
+.mat-button.btn.btn-primary, .mat-raised-button.btn.btn-primary, .mat-raised-button.btn:not([class*=mat-elevation-z]).btn-primary, .btn.btn-primary{
+    background: #262479;
+    box-shadow: 3px 0 6px rgba(0,0,0,.24);
+}
