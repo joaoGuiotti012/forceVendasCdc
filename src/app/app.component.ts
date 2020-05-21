@@ -1,4 +1,5 @@
-import { Component} from '@angular/core';
+import { Component, ViewChild, OnInit} from '@angular/core';
+import { ErrorMsgComponent } from './components/error-msg/error-msg.component';
 
 
 @Component({
@@ -6,6 +7,10 @@ import { Component} from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+  @ViewChild(ErrorMsgComponent) errorMsgComponent: ErrorMsgComponent;
 
+  ngOnInit() {
+    this.errorMsgComponent.setError('Mensagem de erro');
+  }
 }

@@ -1,7 +1,7 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
@@ -12,13 +12,17 @@ import { DataTableComponent } from './data-table/data-table.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { ErrorMsgComponent } from './components/error-msg/error-msg.component';
+
+
+
 
 @NgModule({
   imports: [
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpModule,
+    HttpClientModule,
     ComponentsModule,
     RouterModule,
     AppRoutingModule,
@@ -27,12 +31,14 @@ import { MatSortModule } from '@angular/material/sort';
     }),
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    
   ],
   declarations: [
     AppComponent,
     AdminLayoutComponent,
     DataTableComponent,
+    ErrorMsgComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
