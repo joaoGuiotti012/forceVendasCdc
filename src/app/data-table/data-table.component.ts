@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ErrorMsgComponent } from 'app/components/error-msg/error-msg.component';
-import { LembreteService } from 'app/services/lembrete.service';
+import { LembreteService } from 'app/services/lembrete/lembrete.service';
 import { Lembrete } from 'app/interfaces/lembrete';
 
 declare var $: any;

@@ -3,36 +3,40 @@
       <div class="row">
           <div class="col-md-12">
               <div class="card">
-                  <div class="card-header card-header-danger">
+                  <div class="card-header card-header-danger mini">
                       <h4 class="card-title">Cabeçalho de Pedido</h4>
-                      <p class="card-category">Complete your profile</p>
                   </div>
                   <div class="card-body">
-                      <form>
+                      <form #f="ngForm" (ngSubmit)="onSubmit()" >
                           <div class="row">
-                              <div class="col-md-4">
+                            <div class="col-md-3">
+                              <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="CNPJ" type="text" name="cnpj" 
+                                         [formControl]="cnpjCrt" [errorStateMatcher]="status" required>
+                                         <mat-error *ngIf="cnpjCrt.hasError('required')" >  </mat-error>
+                              </mat-form-field>
+                            </div>
+                              <div class="col-md-2">
                                 <mat-form-field class="example-full-width">
-                                  <input type="text"
-                                         placeholder="Tipo Pedido"
-                                         aria-label="Number"
-                                         matInput
-                                         [formControl]="myControl"
-                                         [matAutocomplete]="auto">
+                                  <input type="text" placeholder="Tipo Pedido" name="tipoPedido"
+                                         matInput [formControl]="tipoPedidoCrt" [errorStateMatcher]="status"
+                                         [matAutocomplete]="auto" required>
+                                    <mat-error *ngIf="tipoPedidoCrt.hasError('required')"> </mat-error>
                                     <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
                                     <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
                                       {{option}}
                                     </mat-option>
                                   </mat-autocomplete>
+                                  
                                 </mat-form-field>
                               </div>
                               <div class="col-md-2">
                                 <mat-form-field class="example-full-width">
-                                  <input type="number"
-                                         placeholder="Cod Cliente"
-                                         aria-label="Number"
-                                         matInput
-                                         [formControl]="myControl"
-                                         [matAutocomplete]="auto">
+                                  <input type="text" placeholder="Cod Cliente"
+                                         matInput [formControl]="codCliCrt"
+                                         [errorStateMatcher]="status"
+                                         [matAutocomplete]="auto" required>
+                                         <mat-error *ngIf="codCliCrt.hasError('required')" ></mat-error>
                                     <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
                                     <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
                                       {{option}}
@@ -40,7 +44,7 @@
                                   </mat-autocomplete>
                                 </mat-form-field>
                               </div>
-                              <div class="col-md-6">
+                              <div class="col-md-5">
                                   <mat-form-field class="example-full-width">
                                     <input matInput placeholder="Nome de Cliente" type="text" disabled>
                                   </mat-form-field>
@@ -54,12 +58,32 @@
                               </div>
                               <div class="col-md-4">
                                 <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Condição Pagamento" type="text">
+                                  <input type="text"
+                                         placeholder="Condição de Pagamento"
+                                         aria-label="Number"
+                                         matInput
+                                         [formControl]="myControl"
+                                         [matAutocomplete]="auto" required>
+                                    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                                    <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                                      {{option}}
+                                    </mat-option>
+                                  </mat-autocomplete>
                                 </mat-form-field>
                               </div>
                               <div class="col-md-4">
                                 <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Forma Pagamento" type="text">
+                                  <input type="text"
+                                         placeholder="Forma de Pagamento"
+                                         aria-label="Number"
+                                         matInput
+                                         [formControl]="myControl"
+                                         [matAutocomplete]="auto" required>
+                                    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                                    <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                                      {{option}}
+                                    </mat-option>
+                                  </mat-autocomplete>
                                 </mat-form-field>
                             </div>
                           </div>
@@ -74,22 +98,21 @@
                                   <input matInput placeholder="Valor Total" type="text" disabled>
                                 </mat-form-field>
                               </div>
-                              
+
                           </div>
                          
-                          <button mat-raised-button type="submit" class="btn btn-primary pull-right">Update Profile</button>
+                          <button mat-raised-button type="submit" class="btn btn-primary pull-right"
+                            type="submit" [disabled]="isValid()" >Update Profile</button>
                           <div class="clearfix"></div>
                       </form>
                   </div>
               </div>
           </div>
-          
       </div>
 
       <div class="row">
         <div class="col-md-12">
             <div class="card">
-                 
                 <div class="card-body">
                     <form>
                       <div class="card-body table-responsive">
@@ -109,7 +132,6 @@
                                     <td></td>
                                     <td></td>
                                 </tr>
-                               
                             </tbody>
                         </table>
                     </div>
