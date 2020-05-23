@@ -17,7 +17,17 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatSelectModule} from '@angular/material/select';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
-
+import { DataTableComponent } from '../../data-table/data-table.component';
+import { ErrorMsgComponent } from 'app/components/error-msg/error-msg.component';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatTableModule} from '@angular/material/table';
+import { NgxPaginationModule } from 'ngx-pagination'; // Módulo da dependência de paginação
+import {MatIconModule} from '@angular/material/icon';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import {MatDialogModule} from '@angular/material/dialog';
+import { FormTesteComponent } from '../../components/form-teste/form-teste.component'
 
 @NgModule({
   imports: [
@@ -31,7 +41,15 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
     MatInputModule,
     MatSelectModule,
     MatTooltipModule,
-    MatAutocompleteModule
+    MatAutocompleteModule ,
+    MatPaginatorModule,
+    MatTableModule,
+    NgxPaginationModule,
+    MatIconModule,
+    MatSnackBarModule,
+    MatProgressSpinnerModule,
+    MatButtonToggleModule,
+    MatDialogModule
   ],
   declarations: [
     DashboardComponent,
@@ -41,8 +59,10 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
     MapsComponent,
     NotificationsComponent,
     UpgradeComponent,
-    
+    DataTableComponent,
+    ErrorMsgComponent,
+    FormTesteComponent
   ]
 })
 
-export class AdminLayoutModule {}
+export class AdminLayoutModule { }

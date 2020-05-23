@@ -5,5 +5,6 @@
 
 export const environment = {
   production: false,
-  forceVendaApiURL: 'http://localhost:8090'
+  forceVendaApiURL: 'http://localhost:8090',
+  apiSapIntegration: 'http://v16-ti05:8098/fvcdc/stcd'
 };

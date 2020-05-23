@@ -15,6 +15,8 @@ export class PedidoService {
     return this.http.get<Pedido[]>(url);
   }
 
+  
+
   getPedido( id: number ): Observable<Pedido> {
     const url = `${environment.forceVendaApiURL}/pedido${id}`;
     return this.http.get<Pedido>(url);

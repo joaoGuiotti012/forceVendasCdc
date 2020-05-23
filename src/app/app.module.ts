@@ -8,15 +8,12 @@ import { ComponentsModule } from './components/components.module';
 import { AppComponent } from './app.component';
 import { AgmCoreModule } from '@agm/core';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
-import { DataTableComponent } from './data-table/data-table.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
-import { ErrorMsgComponent } from './components/error-msg/error-msg.component';
 
 
-
-
+ 
 @NgModule({
   imports: [
     BrowserAnimationsModule,
@@ -32,13 +29,11 @@ import { ErrorMsgComponent } from './components/error-msg/error-msg.component';
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    
+ 
   ],
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-    DataTableComponent,
-    ErrorMsgComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

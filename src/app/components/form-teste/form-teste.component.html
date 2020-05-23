@@ -1,0 +1,38 @@
+
+
+
+<div class="card">
+    <div class="card-primary card-header-primary mini">
+        <h4 class="card-title">Cabeçalho de Pedido</h4>
+    </div>
+    <div class="card-body">
+        <form #f="ngForm" (ngSubmit)="onSubmit()">
+            <div class="row">
+                <div class="col-md-3">
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Conteudo" type="text" id="conteudo" 
+                    placeholder="Seu lembrete..." name="conteudo"
+                    [(ngModel)]="cnpj" 
+                    #conteudo="ngModel" 
+                    [class.is-invalid]="!conteudo.valid && conteudo.touched"
+                    required >
+                            <!-- mat-error *ngIf="cnpjCrt.hasError('required')" >  </mat-error -->
+                </mat-form-field>
+                </div>
+                
+            </div>
+            
+            
+            
+            <button mat-raised-button type="submit" class="btn btn-primary pull-right" [disabled]="!f.valid"
+                type="submit" >Save </button>
+            <div class="clearfix"></div>
+        </form>
+    </div>
+</div>
+
+
+
+
+
+  

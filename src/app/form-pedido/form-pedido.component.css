@@ -1,4 +1,4 @@
-.card > .card-header-danger.card-header-danger{
+.card > .card-header-primary.card-header-primary{
     background: #262479;
     box-shadow: 3px 0 6px rgba(0,0,0,.24);
 }

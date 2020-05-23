@@ -1,27 +1,36 @@
+
 <div class="main-content">
   <div class="container-fluid">
       <div class="row">
           <div class="col-md-12">
               <div class="card">
-                  <div class="card-header card-header-danger mini">
+                  <div class="card-primary card-header-primary mini">
                       <h4 class="card-title">Cabeçalho de Pedido</h4>
                   </div>
                   <div class="card-body">
-                      <form #f="ngForm" (ngSubmit)="onSubmit()" >
+                      <form #f="ngForm" (ngSubmit)="onSubmit()">
                           <div class="row">
                             <div class="col-md-3">
                               <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="CNPJ" type="text" name="cnpj" 
-                                         [formControl]="cnpjCrt" [errorStateMatcher]="status" required>
-                                         <mat-error *ngIf="cnpjCrt.hasError('required')" >  </mat-error>
+                                  <input matInput placeholder="Conteudo" type="text" id="conteudo" 
+                                  placeholder="Seu lembrete..." name="conteudo"
+                                  [(ngModel)]="lembrete.conteudo" 
+                                  #conteudo="ngModel" 
+                                  [class.is-invalid]="!conteudo.valid && conteudo.touched"
+                                  required >
+                                         <!-- mat-error *ngIf="cnpjCrt.hasError('required')" >  </mat-error -->
                               </mat-form-field>
                             </div>
                               <div class="col-md-2">
                                 <mat-form-field class="example-full-width">
-                                  <input type="text" placeholder="Tipo Pedido" name="tipoPedido"
-                                         matInput [formControl]="tipoPedidoCrt" [errorStateMatcher]="status"
+                                  <input type="text" placeholder="Prioridade" name="tipoPedido"
+                                         matInput #prioridade="ngModel" 
+                                         [class.is-invalid]="!prioridade.valid && prioridade.touched" 
+                                         id="prioridade"
+                                         name="prioridade" 
+                                         [(ngModel)]="lembrete.prioridade"  [errorStateMatcher]="status"
                                          [matAutocomplete]="auto" required>
-                                    <mat-error *ngIf="tipoPedidoCrt.hasError('required')"> </mat-error>
+                                    
                                     <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
                                     <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
                                       {{option}}
@@ -30,7 +39,7 @@
                                   
                                 </mat-form-field>
                               </div>
-                              <div class="col-md-2">
+                              <!-- div class="col-md-2">
                                 <mat-form-field class="example-full-width">
                                   <input type="text" placeholder="Cod Cliente"
                                          matInput [formControl]="codCliCrt"
@@ -43,66 +52,14 @@
                                     </mat-option>
                                   </mat-autocomplete>
                                 </mat-form-field>
-                              </div>
-                              <div class="col-md-5">
-                                  <mat-form-field class="example-full-width">
-                                    <input matInput placeholder="Nome de Cliente" type="text" disabled>
-                                  </mat-form-field>
-                              </div>
+                              </div-->
+                              
                           </div>
-                          <div class="row">
-                              <div class="col-md-4">
-                                <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Data Previsão" type="date">
-                                </mat-form-field>
-                              </div>
-                              <div class="col-md-4">
-                                <mat-form-field class="example-full-width">
-                                  <input type="text"
-                                         placeholder="Condição de Pagamento"
-                                         aria-label="Number"
-                                         matInput
-                                         [formControl]="myControl"
-                                         [matAutocomplete]="auto" required>
-                                    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-                                    <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-                                      {{option}}
-                                    </mat-option>
-                                  </mat-autocomplete>
-                                </mat-form-field>
-                              </div>
-                              <div class="col-md-4">
-                                <mat-form-field class="example-full-width">
-                                  <input type="text"
-                                         placeholder="Forma de Pagamento"
-                                         aria-label="Number"
-                                         matInput
-                                         [formControl]="myControl"
-                                         [matAutocomplete]="auto" required>
-                                    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-                                    <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-                                      {{option}}
-                                    </mat-option>
-                                  </mat-autocomplete>
-                                </mat-form-field>
-                            </div>
-                          </div>
-                          <div class="row">
-                              <div class="col-md-4">
-                                <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="N° Pedido" type="text">
-                                </mat-form-field>
-                              </div>
-                              <div class="col-md-2">
-                                <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Valor Total" type="text" disabled>
-                                </mat-form-field>
-                              </div>
-
-                          </div>
+                          
+                          
                          
-                          <button mat-raised-button type="submit" class="btn btn-primary pull-right"
-                            type="submit" [disabled]="isValid()" >Update Profile</button>
+                          <button mat-raised-button type="submit" class="btn btn-primary pull-right" [disabled]="!f.valid"
+                            type="submit" >Save </button>
                           <div class="clearfix"></div>
                       </form>
                   </div>
@@ -112,36 +69,16 @@
 
       <div class="row">
         <div class="col-md-12">
-            <div class="card">
-                <div class="card-body">
-                    <form>
-                      <div class="card-body table-responsive">
-                        <table class="table table-hover">
-                            <thead class="text-warning">
-                                <th>Código</th>
-                                <th>Conteudo</th>
-                                <th>Prioridade</th>
-                                <th>Arquivado</th>
-                                <th>Modificação</th>
-                            </thead>
-                            <tbody>
-                                <tr *ngFor="">
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                        <button mat-raised-button type="submit" class="btn btn-primary pull-right">Update Profile</button>
-                        <div class="clearfix"></div>
-                    </form>
-                </div>
-            </div>
+            <app-form-teste (outputLembrete)="addLembrete($event)"></app-form-teste>
         </div>
-        
-    </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <lembrete-table></lembrete-table>
+        </div>
+      </div>
+      <div class="row">
+        <!-- app-dashboard></app-dashboard -->
+      </div>
   </div>
 </div>
