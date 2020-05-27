@@ -5,10 +5,6 @@ import { RouterModule } from '@angular/router';
 import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
-import { FormLembreteComponent } from './form-lembrete/form-lembrete.component';
-
-//import { ErrorMsgComponent } from './error-msg/error-msg.component';
-
 
 
 @NgModule({
@@ -20,14 +16,13 @@ import { FormLembreteComponent } from './form-lembrete/form-lembrete.component';
     FooterComponent,
     NavbarComponent,
     SidebarComponent,
-    FormLembreteComponent,
-    //ErrorMsgComponent
+  
+
   ],
   exports: [
     FooterComponent,
     NavbarComponent,
     SidebarComponent,
-    //ErrorMsgComponent
   ]
 })
 export class ComponentsModule { 

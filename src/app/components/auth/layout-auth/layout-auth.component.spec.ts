@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FormPedidoComponent } from './form-pedido.component';
+import { LayoutAuthComponent } from './layout-auth.component';
 
-describe('UserProfileComponent', () => {
-  let component: FormPedidoComponent;
-  let fixture: ComponentFixture<FormPedidoComponent>;
+describe('LayoutAuthComponent', () => {
+  let component: LayoutAuthComponent;
+  let fixture: ComponentFixture<LayoutAuthComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FormPedidoComponent ]
+      declarations: [ LayoutAuthComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FormPedidoComponent);
+    fixture = TestBed.createComponent(LayoutAuthComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -12,8 +12,12 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 
+import { ErrorMsgComponent } from './components/error-msg/error-msg.component';
 
- 
+
+
+
+
 @NgModule({
   imports: [
     BrowserAnimationsModule,
@@ -29,13 +33,14 @@ import { MatSortModule } from '@angular/material/sort';
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
- 
+
   ],
   declarations: [
     AppComponent,
     AdminLayoutComponent,
+
   ],
-  providers: [],
+  providers: [ ErrorMsgComponent ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

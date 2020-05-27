@@ -31,7 +31,7 @@ export class DataTableComponent implements OnInit {
   ngOnInit() {
     this.getListaLembretes()
   }
-  
+
   getListaLembretes() {
     this.lembreteService.getListaLembretes()
       .subscribe( (lembretes: Lembrete[]) => {

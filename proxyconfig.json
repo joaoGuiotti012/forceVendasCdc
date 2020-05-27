@@ -1,0 +1,9 @@
+
+{
+    "/":{
+        "target": "http://172.16.8.29:8090",
+        "secure": false,
+        "changeOrigin": true
+    }
+
+}

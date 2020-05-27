@@ -1,0 +1,63 @@
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-5 ">
+        <div class="card  shadow border-0">
+          
+          <div class="card-header card-header-primary">
+            <h4 class="card-title font-weight-bold text-center">Seja Bem-Vindo !</h4>
+            <!-- p class="card-category">New employees on 15th September, 2016</p -->
+        </div>
+          <div class="card-body px-lg-5 py-lg-5">
+            
+            <div class="text-center text-muted mb-3">
+              
+              <img src="/assets/img/logo-cdc.png" width="90%" height="100%"/>
+
+            </div>
+
+              <div class="form-group mb-3">
+                <div class="input-group input-group-alternative">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                  </div>
+                  <input [(ngModel)]="user.cnpj" #cnpj="ngModel" 
+                   class="form-control" placeholder="CNPJ / CPF" type="text" 
+                    required>
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <div class="input-group input-group-alternative">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                  </div>
+                  <input [(ngModel)]="user.password" id="password" class="form-control" placeholder="Senha" type="password" 
+                         #password="ngModel"  required>
+                </div>
+              </div>
+              <div class="custom-control custom-control-alternative custom-checkbox">
+                <input class="custom-control-input" id=" customCheckLogin" type="checkbox">
+                <label class="custom-control-label" for=" customCheckLogin">
+                  <span class="text-muted">Lembre-se de mim </span>
+                </label>
+              </div>
+              <div class="text-center">
+                <button type="submit" class="btn btn-primary my-4" 
+                [disabled]="!cnpj.valid || !password.valid" (click)="onLogin()">Entrar</button>
+              </div>
+           
+              
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col-6">
+            <a href="javascript:void(0)" class="" routerLink="/forget-password"><small>Esqueci minha senha ?</small></a>
+          </div>
+          <!-- div class="col-6 text-right">
+            <a href="javascript:void(0)" class=""><small>Criar nova conta ?</small></a>
+          </div-->
+        </div>
+      </div>
+    </div>
+  </div>
+  

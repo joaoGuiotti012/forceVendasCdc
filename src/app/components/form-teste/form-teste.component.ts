@@ -34,7 +34,7 @@ export class FormTesteComponent implements OnInit {
       }, null );
   }
   getall() {
-    this.clientePedidoService.getal()
+    this.clientePedidoService.getAll()
     .subscribe( (_clientePedido: ClientePedido[] ) =>  {
       this.ClientePedido = _clientePedido;
       console.log(_clientePedido.values);

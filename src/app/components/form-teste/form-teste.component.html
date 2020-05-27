@@ -9,15 +9,26 @@
         <form #f="ngForm" (ngSubmit)="onSubmit()">
             <div class="row">
                 <div class="col-md-3">
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Conteudo" type="text" id="conteudo" 
+                        placeholder="Seu lembrete..." name="conteudo"
+                        [(ngModel)]="cnpj" 
+                        #conteudo="ngModel" 
+                        [class.is-invalid]="!conteudo.valid && conteudo.touched"
+                        required >
+                                <!-- mat-error *ngIf="cnpjCrt.hasError('required')" >  </mat-error -->
+                    </mat-form-field>
+                </div>
+                <div class="col-md-3">
                 <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Conteudo" type="text" id="conteudo" 
+                    <input matInput placeholder="Conteudo" type="textarea" id="conteudo" 
                     placeholder="Seu lembrete..." name="conteudo"
                     [(ngModel)]="cnpj" 
                     #conteudo="ngModel" 
                     [class.is-invalid]="!conteudo.valid && conteudo.touched"
                     required >
                             <!-- mat-error *ngIf="cnpjCrt.hasError('required')" >  </mat-error -->
-                </mat-form-field>
+                </mat-form-field> 
                 </div>
                 
             </div>

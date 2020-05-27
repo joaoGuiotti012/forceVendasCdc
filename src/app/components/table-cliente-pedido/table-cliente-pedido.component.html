@@ -1,0 +1,31 @@
+<app-error-msg></app-error-msg>
+
+<div class="loading-indicator" *ngIf="isLoading">
+    <mat-spinner  mode="indeterminate"  ></mat-spinner>
+</div> 
+
+<div class="card">
+    <div class="card-header card-header-primary">
+        <h4 class="card-title">Cliente Parceiro</h4>
+
+    </div>
+    <div class="card-body table-responsive">
+        <table class="table table-hover table table-hover table-striped  table-sprited table-bordered">
+            <thead class="text-bold">
+                <th>Código</th>
+                <th>Nome Cliente</th>
+                <th>CNPJ Parceiro</th>
+                <th>CPF Parceiro</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let clientePedido of clientePedidos | paginate: { itemsPerPage: 10, currentPage: paginaAtual }; let i = index">
+                    <td> {{ clientePedido.cliente }} </td>
+                    <td> {{ clientePedido.nomeCliente }} </td>
+                    <td> {{clientePedido.cnpjParceiro }} </td>  
+                    <td> {{clientePedido.cpfParceiro }} </td>
+                </tr>
+            </tbody>
+            <pagination-controls (pageChange)="paginaAtual = $event" ></pagination-controls>
+        </table>
+    </div>
+</div>

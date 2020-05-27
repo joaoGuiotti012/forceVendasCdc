@@ -4,13 +4,24 @@ import { BrowserModule  } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import { LoginComponent } from './components/auth/login/login.component';
+import { ForgetPasswordComponent } from './components/auth/forget-password/forget-password.component';
 
 const routes: Routes = [
   {
     path: '',
     redirectTo: 'dashboard',
-    pathMatch: 'full',
-  }, {
+    pathMatch: 'full', 
+  },
+  {
+    path: 'login',
+    component: LoginComponent
+  } ,
+  {
+    path: 'forget-password',
+    component: ForgetPasswordComponent
+  } ,
+  {
     path: '',
     component: AdminLayoutComponent,
     children: [{

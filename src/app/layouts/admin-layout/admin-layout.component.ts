@@ -7,19 +7,31 @@ import { Subscription } from 'rxjs/Subscription';
 import PerfectScrollbar from 'perfect-scrollbar';
 import * as $ from 'jquery';
 
+import { ErrorMsgComponent } from 'app/components/error-msg/error-msg.component';
+import { AuthService } from 'app/components/auth/login/auth.service';
+
 @Component({
   selector: 'app-admin-layout',
   templateUrl: './admin-layout.component.html',
   styleUrls: ['./admin-layout.component.scss']
 })
 export class AdminLayoutComponent implements OnInit {
+  @ViewChild(ErrorMsgComponent) errorMsgComponent: ErrorMsgComponent;
   private _router: Subscription;
   private lastPoppedUrl: string;
   private yScrollStack: number[] = [];
+  islogged: boolean = false;
 
-  constructor( public location: Location, private router: Router) {}
+
+  constructor( public location: Location, private router: Router,
+               private authService: AuthService) {}
 
   ngOnInit() {
+
+    this.authService.loggedEmitter.subscribe(
+        enable => this.islogged = enable
+      ), ()=> {this.errorMsgComponent.setError('Falha ao realizar login !')};
+
       const isWindows = navigator.platform.indexOf('Win') > -1 ? true : false;
 
       if (isWindows && !document.getElementsByTagName('body')[0].classList.contains('sidebar-mini')) {

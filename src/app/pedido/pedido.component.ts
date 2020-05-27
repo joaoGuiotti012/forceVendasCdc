@@ -8,37 +8,33 @@ import { LembreteService } from 'app/services/lembrete/lembrete.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import { ClientePedido } from 'app/interfaces/cliente-pedido';
 import { ClientePedidoService } from 'app/services/cliente-parceiro/cliente-pedido.service';
+import { AuthService } from 'app/components/auth/login/auth.service';
 
 
-/** Error when invalid control is dirty, touched, or submitted. */
-export class IsError implements ErrorStateMatcher {
-  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
-    const isSubmitted = form && form.submitted;
-    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
-  }
-}
 
 @Component({
-  selector: 'app-form-pedido',
-  templateUrl: './form-pedido.component.html',
-  styleUrls: ['./form-pedido.component.css']
+  selector: 'app-pedido',
+  templateUrl: './pedido.component.html',
+  styleUrls: ['./pedido.component.css'],
+  providers: [AuthService]
 })
 
-export class FormPedidoComponent implements OnInit {
-  @Input() lembrete: Lembrete = <Lembrete>{};
-
-
-  public clientePedido: ClientePedido[];
+export class PedidoComponent implements OnInit {
   
-  status = new IsError();
-
+  @Input() lembrete: Lembrete = <Lembrete>{};
+  public clientePedido: ClientePedido[];
   /*isValid(): boolean {
     return this.cnpjCrt.invalid || this.tipoPedidoCrt.invalid || this.codCliCrt.invalid;
   }*/
 
-  constructor(private lembreteService: LembreteService , private clientePedidoService: ClientePedidoService, 
-    private _snackBar: MatSnackBar ) { }
+  constructor( private lembreteService: LembreteService,
+               private clientePedidoService: ClientePedidoService,
+              private _snackBar: MatSnackBar ) {
 
+      
+
+    }
+    
   myControl = new FormControl();
   options: string[] = ['ALTA','MEDIA', 'BAIXA' ];
   filteredOptions: Observable<string[]>;

@@ -1,13 +1,17 @@
 import { Routes } from '@angular/router';
 
 import { DashboardComponent } from '../../dashboard/dashboard.component';
-import { FormPedidoComponent } from '../../form-pedido/form-pedido.component';
 import { TypographyComponent } from '../../typography/typography.component';
 import { IconsComponent } from '../../icons/icons.component';
 import { DataTableComponent } from '../../data-table/data-table.component';
 import { MapsComponent } from '../../maps/maps.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
+ 
+import { ForgetPasswordComponent } from 'app/components/auth/forget-password/forget-password.component';
+import { LoginComponent } from 'app/components/auth/login/login.component';
+import { PedidoComponent } from 'app/pedido/pedido.component';
+import { ClienteComponent } from 'app/cliente/cliente.component';
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -52,8 +56,12 @@ export const AdminLayoutRoutes: Routes = [
     //         component: UpgradeComponent
     //     }]
     // }
+
+    { path: 'forget-password' ,   component: ForgetPasswordComponent },
+    { path: 'login' ,         component: LoginComponent },
     { path: 'dashboard',      component: DashboardComponent     },
-    { path: 'form-pedido',    component: FormPedidoComponent    },
+    { path: 'pedido',    component: PedidoComponent    },
+    { path: 'cliente',    component: ClienteComponent    },
     { path: 'table-list',     component: DataTableComponent     },
     { path: 'typography',     component: TypographyComponent    },
     { path: 'icons',          component: IconsComponent         },
